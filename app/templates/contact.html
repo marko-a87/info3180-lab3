@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block main %}
+<h1>Contact Form</h1>
+<hr />
+<p>Fill in this form to contact the site owners</p>
+
+<form method="POST">
+  <!-- <label for="name">Name</label>
+  <br />
+  <p>Please enter your full name</p>
+  <input type="text" name="name" id="name" />
+  <br />
+
+  <br />
+  <label for="email">Email</label>
+  <br />
+  <p>Please enter your email address</p>
+  <input type="email" name="email" id="email" />
+  <br />
+
+  <br />
+  <label for="subject">Subject</label>
+
+  <p>Please enter the subject for your message</p>
+  <input type="text" name="subject" id="subject" />
+  <br />
+
+  <br />
+
+  <label for="message">Message</label>
+  <br />
+
+  <p>Please enter your message you would like to send.</p>
+  <textarea name="message" id="message" cols="50" rows="4"></textarea>
+  <br />
+
+  <button type="submit">Send</button> -->
+
+  {{ form.csrf_token }} {{ form.name.label }}
+  <span class="required-to-red">(Required)</span>
+
+  <p>Please enter your full name</p>
+  {{ form.name(class="name") }}
+  <br />
+  <br />
+  {{ form.email.label}}
+  <span class="required-to-red">(Required)</span>
+  <p>Please enter your email address</p>
+  {{ form.email(class="email") }}
+
+  <br />
+
+  <br />
+
+  {{ form.subject.label }}
+  <span class="required-to-red">(Required)</span>
+  <p>Please enter the subject for your message</p>
+  {{form.subject(class="subject") }}
+
+  <br />
+
+  <br />
+  {{ form.message.label }}
+  <span class="required-to-red">(Required)</span>
+
+  <p>Please enter your message you would like to send.</p>
+  {{ form.message(class_="message_size") }}
+
+  <br />
+  <br />
+  <button class="send_btn" type="submit">Send</button>
+</form>
+{% endblock %}
